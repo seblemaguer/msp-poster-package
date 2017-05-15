@@ -1,0 +1,65 @@
+\definecolor{sfbgreen}{RGB}{61,144,28}
+\definecolor{uniblue}{RGB}{15,49,102}
+\definecolor{brickred}{RGB}{204,77,20}
+\definecolor{yellow}{RGB}{255,254,0}
+
+\tikzset{
+    title/.style={
+       	opacity=1.0,
+       	fill=uniblue!20,
+       	anchor=north,
+       	draw=black,
+        ultra thick,
+       	rounded corners
+    },
+    posterblock/.style={
+        opacity=1.0,
+        text opacity=1.0,
+        fill=white
+        % draw,
+        % ultra thick,
+        % inner sep=0,
+        % outer sep=0,
+        % rounded corners
+    },
+    posterblocktrans/.style={
+	    opacity=1.0,
+	    text opacity=1.0,
+	    fill=white,
+	    draw,
+	    ultra thick,
+	    inner sep=5,
+	    outer sep=0,
+	    rounded corners
+    },
+    logobar/.style={
+        align=center,
+        minimum width=\paperwidth + 10pt,
+        text width=\textwidth,
+		opacity=1.0,
+        inner sep=5
+    }
+}
+
+\setblockpadding{5}
+\setblockspacing{15}
+\setmargins{15}{15}
+
+\makeatletter
+\renewcommand{\maketitle}{
+    \begin{posterblock}[title]
+        \begin{center}
+            {\huge{\bf{\@title}}} \\
+            \vspace{10pt}
+            {\large\@author}
+        \end{center}
+    \end{posterblock}
+}
+\makeatother
+
+
+\titleformat{\section}
+  {\gdef\sectionlabel{}
+   \normalfont\bfseries\scshape}
+  {\gdef\sectionlabel{\thesection.\ }}{0pt}
+  {\colorbox{sfbgreen}{\parbox{\textwidth}{\color{white}\sectionlabel#1}}}
